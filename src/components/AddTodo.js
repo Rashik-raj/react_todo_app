@@ -9,8 +9,13 @@ export default class AddTodo extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.addTodo(this.state.title);
-        this.setState({title: ''});
+        if (this.state.title === '') {
+            alert('Please Enter Todo.');
+        }
+        else {
+            this.props.addTodo(this.state.title);
+            this.setState({title: ''});
+        }
     }
 
     render() {
